@@ -1,3 +1,4 @@
+import dataProvider.PropertiesReaderSingleton;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +7,7 @@ import org.selenium.DriverManager;
 
 public class ChromeTest {
     static WebDriver driver;
+    private final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 
     @BeforeEach
     void setup() {
@@ -20,8 +22,9 @@ public class ChromeTest {
 
     @Test
     void shouldOpenWebsite() {
-        driver.manage().window().maximize();
+        String applicationUrl = properties.getApplicationUrl();
 
-        driver.get("https://www.saucedemo.com");
+        driver.manage().window().maximize();
+        driver.get(applicationUrl);
     }
 }
