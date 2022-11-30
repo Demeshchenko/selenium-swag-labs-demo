@@ -1,23 +1,17 @@
+import dataProvider.PropertiesReaderSingleton;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.selenium.DriverManager;
 
 public class ChromeTest {
     static WebDriver driver;
-    static DriverManager driverManager = new DriverManager();
-
-    @BeforeAll
-    public static void setupAll() {
-        driver = driverManager.createDriver("chrome");
-    }
+    private final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 
     @BeforeEach
     void setup() {
-        driver = new ChromeDriver();
+        driver = DriverManager.createDriver("chrome");
     }
 
     @AfterEach
@@ -28,8 +22,9 @@ public class ChromeTest {
 
     @Test
     void shouldOpenWebsite() {
-        driver.manage().window().maximize();
+        String applicationUrl = properties.getApplicationUrl();
 
-        driver.get("https://www.saucedemo.com");
+        driver.manage().window().maximize();
+        driver.get(applicationUrl);
     }
 }
