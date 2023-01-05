@@ -22,7 +22,7 @@ public class ChromeTest {
 
     @Test
     void shouldOpenWebsite() {
-        String applicationUrl = properties.getApplicationUrl();
+        String applicationUrl = properties.getProperty("home");
 
         driver.manage().window().maximize();
         driver.get(applicationUrl);
