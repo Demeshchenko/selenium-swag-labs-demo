@@ -2,10 +2,11 @@ package saucedemo.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.selenium.DriverManager;
 
 public class LoginPage {
 
-    static WebDriver driver;
+    private final WebDriver driver = DriverManager.getInstance();
 
     private static final String LOGO_CSS = ".login_logo";
     private static final String USERNAME_CSS = "input[placeholder='Username']";

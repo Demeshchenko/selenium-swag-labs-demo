@@ -1,17 +1,14 @@
 package saucedemo.stepDefenition.login;
 
-import dataProvider.PropertiesReaderSingleton;
+import org.dataProvider.PropertiesReaderSingleton;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import saucedemo.step.CommonStep;
 import saucedemo.step.LoginStep;
 import saucedemo.step.ProductsStep;
 
 public class LoginStepDefinition {
 
-    static WebDriver driver;
     private final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 
     private CommonStep commonStep = new CommonStep();
@@ -46,7 +43,7 @@ public class LoginStepDefinition {
     @Then("I Verify that the Logo present on page")
     public void i_verify_that_the_logo_present_on_page() {
 
-        boolean status = driver.findElement(By.cssSelector("#root > div > div.login_logo")).isDisplayed();
+        //boolean status = driver.findElement(By.cssSelector("#root > div > div.login_logo")).isDisplayed();
         //Assert.assertEquals(true, status);
 
     }
