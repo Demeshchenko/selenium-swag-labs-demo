@@ -5,7 +5,19 @@ public class ProductsStep {
 
     ProductsPage productsPage = new ProductsPage();
 
-    public boolean isLogoutButtonShown() {
-        return productsPage.isShoppingCartButtonProvided();
+    public boolean isShoppingCartButtonShown() {
+        return productsPage.isShoppingCartButtonDisplayed();
+    }
+
+    public void clickAddToCart() {
+        productsPage.clickAddToCart();
+    }
+
+    public boolean isCartCounterIsDisplayedWithValueShown() {
+        return productsPage.isCartCounterDisplayed();
+    }
+
+    public void clickCart() {
+        productsPage.clickCartButton();
     }
 }

@@ -3,13 +3,11 @@ package saucedemo.stepDefenition.login;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.dataProvider.PropertiesReaderSingleton;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.selenium.DriverManager;
 import saucedemo.step.CommonStep;
 import saucedemo.step.LoginStep;
 import saucedemo.step.ProductsStep;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginStepDefinition {
@@ -44,14 +42,6 @@ public class LoginStepDefinition {
 
     @Then("I verify that Products page is opened")
     public void i_verify_that_products_page_is_opened() {
-        assertThat(productsStep.isLogoutButtonShown()).isTrue();
-    }
-
-    @Then("I Verify that the Logo present on page")
-    public void i_verify_that_the_logo_present_on_page() {
-
-        boolean status = driver.findElement(By.cssSelector("#root > div > div.login_logo")).isDisplayed();
-        assertThat(status).isTrue();
-
+        assertThat(productsStep.isShoppingCartButtonShown()).isTrue();
     }
 }
