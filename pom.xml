@@ -16,6 +16,7 @@
         <junit.jupiter.version>5.9.0</junit.jupiter.version>
         <apache.common.version>2.4</apache.common.version>
         <projectlombok.version>1.18.24</projectlombok.version>
+        <assertj.version>3.11.1</assertj.version>
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
         <maven.compiler.source.version>8</maven.compiler.source.version>
@@ -100,6 +101,14 @@
             <artifactId>lombok</artifactId>
             <version>${projectlombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- AssertJ -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

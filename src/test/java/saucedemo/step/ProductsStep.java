@@ -5,7 +5,7 @@ public class ProductsStep {
 
     ProductsPage productsPage = new ProductsPage();
 
-    public void isLogoutButtonShown() {
-        productsPage.isLogoutButtonProvided();
+    public boolean isLogoutButtonShown() {
+        return productsPage.isShoppingCartButtonProvided();
     }
 }
