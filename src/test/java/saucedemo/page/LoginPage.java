@@ -6,7 +6,7 @@ import org.selenium.DriverManager;
 
 public class LoginPage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String LOGO_CSS = ".login_logo";
     private static final String USERNAME_CSS = "input[placeholder='Username']";

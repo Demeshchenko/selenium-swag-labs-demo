@@ -6,7 +6,7 @@ import org.selenium.DriverManager;
 
 public class CartPage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String FLEECE_JACKET_CSS = "#item_5_title_link";
     private static final String CHECKOUT_CSS = "#checkout";

@@ -6,7 +6,7 @@ import org.selenium.DriverManager;
 
 public class ProductsPage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String LOGOUT_BUTTON_CSS = "#logout_sidebar_link";
     private static final String SHOPPING_CART_BUTTON_CSS = "#shopping_cart_container";

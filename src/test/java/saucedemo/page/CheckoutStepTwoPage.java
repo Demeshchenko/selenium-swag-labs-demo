@@ -6,14 +6,16 @@ import org.selenium.DriverManager;
 
 public class CheckoutStepTwoPage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String PAYMENT_INFORMATION_CSS = "#checkout_summary_container > div > div.summary_info > div:nth-child(2)";
     private static final String FINISH_BUTTON_CSS = "#finish";
 
     public boolean isPaymentInformationDisplayed() {
-        return driver.findElement(By.cssSelector(PAYMENT_INFORMATION_CSS))
-                .isDisplayed();
+        String paymentInformation = driver.findElement(By.cssSelector(PAYMENT_INFORMATION_CSS)).getText();
+        String[] tokens = paymentInformation.split(" ");
+        String number = tokens[tokens.length - 1].replace("#", "");
+        return String.valueOf(number).length() == 5;
     }
 
     public void clickFinishButton() {

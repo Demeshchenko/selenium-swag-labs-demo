@@ -6,7 +6,7 @@ import org.selenium.DriverManager;
 
 public class CheckoutStepOnePage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String FIRST_NAME_CSS = "#first-name";
     private static final String LAST_NAME_CSS = "#last-name";

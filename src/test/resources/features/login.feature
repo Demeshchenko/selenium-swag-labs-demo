@@ -1,5 +1,6 @@
 Feature: Saucedemo login
 
+  @SmokeTest
   Scenario: Login as standard user
 
     When I open "home" page

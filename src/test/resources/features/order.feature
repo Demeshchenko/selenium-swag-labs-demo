@@ -1,5 +1,7 @@
 Feature: Saucedemo order
 
+  @SmokeTest
+  @debug
   Scenario:Order product as standard user
 
     When I open "home" page

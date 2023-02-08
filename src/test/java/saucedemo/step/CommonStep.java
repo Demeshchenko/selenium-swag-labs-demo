@@ -5,7 +5,7 @@ import org.selenium.DriverManager;
 
 public class CommonStep {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     public void openPage(String pageName) {
         driver.manage().window().maximize();

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginStepDefinition {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 

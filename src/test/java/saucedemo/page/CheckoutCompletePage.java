@@ -6,7 +6,7 @@ import org.selenium.DriverManager;
 
 public class CheckoutCompletePage {
 
-    private final WebDriver driver = DriverManager.getInstance();
+    private final WebDriver driver = DriverManager.getDriver();
 
     private static final String COMPLETE_IMAGE_CSS = "#checkout_complete_container";
 

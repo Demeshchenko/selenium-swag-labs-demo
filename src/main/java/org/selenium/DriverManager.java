@@ -8,27 +8,54 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
 
-    private static WebDriver instance;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 
-    public static WebDriver getInstance() {
-        if ( instance == null ) {
-            instance = createDriver(properties.getProperty("webdriver.browser"));
-        }
+//    public static WebDriver getInstance() {
+//        if ( instance == null ) {
+//            instance = createDriver(properties.getProperty("webdriver.browser"));
+//        }
+//
+//        return instance;
+//    }
 
-        return instance;
-    }
+    public static void setDriver() {
+        String type = properties.getProperty("webdriver.browser");
 
-    private static WebDriver createDriver(String type) {
-
-        switch (Browsers.fromString(type)) {
-            case CHROME:
+        switch (type) {
+            case "CHROME":
                 WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
-            case FIREFOX:
+                driver.set(new ChromeDriver());
+                break;
+            case "FIREFOX":
                 WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
+                driver.set(new FirefoxDriver());
+                break;
         }
-        throw new IllegalArgumentException("Not valid browser type");
     }
+
+//    public static void setDriver(String type) {
+//
+//        switch (Browsers.fromString(type)) {
+//            case CHROME:
+//                WebDriverManager.chromedriver().setup();
+//                driver.set(new ChromeDriver());
+//            case FIREFOX:
+//                WebDriverManager.firefoxdriver().setup();
+//                driver.set(new FirefoxDriver());
+//        }
+//        throw new IllegalArgumentException("Not valid browser type");
+//    }
+
+    public static WebDriver getDriver()
+    {
+        return driver.get();
+    }
+
+    public static void closeBrowser()
+    {
+        driver.get().close();
+        driver.remove();
+    }
+
 }
