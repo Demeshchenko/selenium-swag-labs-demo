@@ -1,4 +1,4 @@
-package dataProvider;
+package org.dataProvider;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -34,9 +34,7 @@ public class PropertiesReaderSingleton {
         return instance;
     }
 
-    public String getApplicationUrl() {
-        String url = properties.getProperty("url");
-        if (url != null) return url;
-        else throw new RuntimeException("url not specified in the configuration.properties file.");
+    public String getProperty(String key) {
+        return properties.getProperty(key);
     }
 }
