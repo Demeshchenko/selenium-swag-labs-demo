@@ -13,8 +13,16 @@ public class ProductsStep {
         productsPage.clickAddToCart();
     }
 
+    public void clickRemove() {
+        productsPage.clickRemove();
+    }
+
     public boolean isCartCounterIsDisplayedWithValueShown() {
         return productsPage.isCartCounterDisplayed();
+    }
+
+    public boolean isCartCounterIsDisplayedWithValueIsNotShown() {
+        return productsPage.isCartCounterIsNotDisplayed();
     }
 
     public void clickCart() {

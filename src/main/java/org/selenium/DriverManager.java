@@ -11,14 +11,6 @@ public class DriverManager {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final PropertiesReaderSingleton properties = PropertiesReaderSingleton.getInstance();
 
-//    public static WebDriver getInstance() {
-//        if ( instance == null ) {
-//            instance = createDriver(properties.getProperty("webdriver.browser"));
-//        }
-//
-//        return instance;
-//    }
-
     public static void setDriver() {
         String type = properties.getProperty("webdriver.browser");
 
@@ -34,19 +26,6 @@ public class DriverManager {
         }
     }
 
-//    public static void setDriver(String type) {
-//
-//        switch (Browsers.fromString(type)) {
-//            case CHROME:
-//                WebDriverManager.chromedriver().setup();
-//                driver.set(new ChromeDriver());
-//            case FIREFOX:
-//                WebDriverManager.firefoxdriver().setup();
-//                driver.set(new FirefoxDriver());
-//        }
-//        throw new IllegalArgumentException("Not valid browser type");
-//    }
-
     public static WebDriver getDriver()
     {
         return driver.get();
@@ -57,5 +36,4 @@ public class DriverManager {
         driver.get().close();
         driver.remove();
     }
-
 }

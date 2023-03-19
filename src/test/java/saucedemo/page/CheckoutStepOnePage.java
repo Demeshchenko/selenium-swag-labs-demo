@@ -32,5 +32,4 @@ public class CheckoutStepOnePage {
         driver.findElement(By.cssSelector(CONTINUE_BUTTON_CSS))
                 .click();
     }
-
 }

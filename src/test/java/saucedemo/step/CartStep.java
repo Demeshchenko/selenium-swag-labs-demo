@@ -10,6 +10,14 @@ public class CartStep {
         return cartPage.isFleeceJacketDisplayed();
     }
 
+    public  boolean isFleeceJacketIsNoShown() {
+        return cartPage.isFleeceJacketIsNotDisplayed();
+    }
+
+    public void clickRemove() {
+        cartPage.clickRemove();
+    }
+
     public void clickCheckout() {
         cartPage.clickCheckoutButton();
     }
