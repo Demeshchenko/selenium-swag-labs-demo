@@ -4,10 +4,12 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
 import static io.cucumber.core.options.Constants.FILTER_TAGS_PROPERTY_NAME;
+import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines({"cucumber"})
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@SmokeTest")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 public class CucumberTest {
 }
