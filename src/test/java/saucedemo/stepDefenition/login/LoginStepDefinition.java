@@ -44,4 +44,9 @@ public class LoginStepDefinition {
     public void i_verify_that_products_page_is_opened() {
         assertThat(productsStep.isShoppingCartButtonShown()).isTrue();
     }
+
+    @Then("^I verify that \"([^\"]*)\" validation message is shown$")
+    public void iVerifyThatValidationMessageIsShown(String message) {
+        assertThat(loginStep.verifyValidationMessage(properties.getProperty(message))).isTrue();
+    }
 }
