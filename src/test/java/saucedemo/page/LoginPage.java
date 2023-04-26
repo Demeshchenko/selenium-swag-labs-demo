@@ -2,7 +2,10 @@ package saucedemo.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.selenium.DriverManager;
+
+import java.util.Objects;
 
 public class LoginPage {
 
@@ -12,6 +15,7 @@ public class LoginPage {
     private static final String USERNAME_CSS = "input[placeholder='Username']";
     private static final String PASSWORD_CSS = "input[placeholder='Password']";
     private static final String LOGIN_BUTTON_CSS = ".submit-button";
+    private static final String LOGIN_ERROR_CSS = "div.error-message-container.error";
 
     public Boolean isLogoDisplayed() {
         return driver.findElement(By.cssSelector(LOGO_CSS)).isDisplayed();
@@ -30,5 +34,10 @@ public class LoginPage {
     public void clickLoginButton() {
         driver.findElement(By.cssSelector(LOGIN_BUTTON_CSS))
                 .click();
+    }
+
+    public boolean isValidationMessageDisplayed(String message) {
+        String validationMessage = driver.findElement(By.cssSelector(LOGIN_ERROR_CSS)).getText();
+        return message.equals(validationMessage);
     }
 }

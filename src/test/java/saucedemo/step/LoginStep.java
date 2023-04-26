@@ -4,6 +4,9 @@ import saucedemo.page.LoginPage;
 
 public class LoginStep {
 
+    public boolean verifyValidationMessage(String message){
+        return loginPage.isValidationMessageDisplayed(message);
+    }
     LoginPage loginPage = new LoginPage();
 
     public void enterUsername(String username) {
